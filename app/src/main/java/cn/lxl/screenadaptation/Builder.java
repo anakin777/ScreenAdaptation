@@ -106,7 +106,19 @@ public class Builder {
         float scale = nowDensity * 1.00f / STANDARD_DENSITY;
 
         System.out.println("width : " + nowDensity + ", scale = " + scale);
-        for (double i = 0.5; i <= TAGGET_COUNT; i=i+0.5) {
+        for (int i = 1; i <= TAGGET_COUNT; i++) {
+            // 方法进行保留2位小数来算
+            DecimalFormat decimalFormat = new DecimalFormat("0.00");
+            String result = decimalFormat.format(i * scale);
+            /**
+             *  模版：<dimen name="dp_{0}">{1}dp</dimen>
+             *  例子：<dimen name="dp_100">100dp</dimen>
+             */
+            target.append(TEMPLATE
+                    .replace("{0}", String.valueOf(i))
+                    .replace("{1}", result));
+        }
+        for (double i = 0.5; i <= TAGGET_COUNT; i++) {
             // 方法进行保留2位小数来算
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
             String result = decimalFormat.format(i * scale);
