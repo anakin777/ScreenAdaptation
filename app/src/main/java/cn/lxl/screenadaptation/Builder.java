@@ -106,7 +106,7 @@ public class Builder {
         float scale = nowDensity * 1.00f / STANDARD_DENSITY;
 
         System.out.println("width : " + nowDensity + ", scale = " + scale);
-        for (int i = 1; i <= TAGGET_COUNT; i++) {
+        for (double i = 0.5; i <= TAGGET_COUNT; i=i+0.5) {
             // 方法进行保留2位小数来算
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
             String result = decimalFormat.format(i * scale);
